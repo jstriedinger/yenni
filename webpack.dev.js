@@ -13,7 +13,7 @@ module.exports = merge(common, {
         ],
         host: 'localhost',
         port: 3000,
-        proxy: 'http://localhost/gb',
+        proxy: 'http://localhost/yenni',
         logPrefix: 'webpack',
         logLevel: 'debug',
         ghostMode: false

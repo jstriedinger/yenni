@@ -2,6 +2,7 @@
 $button-padding-horizontal: 1.6rem;
 $button-padding-vertical: 1.6rem;
 $box-padding: 2rem;
+$maincolor: #3b3985;
 @mixin customGap($val: 1.6)
 {
 	@include tablet{
@@ -33,6 +34,14 @@ $box-padding: 2rem;
 @import "~bulma";
 
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700');
+@font-face {
+    font-family: 'Playlist';
+    src: local('Playlist Script'), local('Playlist-Script'),
+        url('Playlist-Script.woff2') format('woff2'),
+        url('Playlist-Script.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 .title, .subtitle, .navbar-item{
 	font-family: 'Roboto Condensed'
@@ -43,6 +52,16 @@ $box-padding: 2rem;
 
 .is-vcentered{
 	align-items: center;
+}
+.title{
+	font-family: "Playlist";
+	&.is-big-1
+	{
+		@include desktop
+		{
+			font-size: 4rem !important;
+		}
+	}
 }
 
 body{
@@ -58,15 +77,15 @@ section{
 			padding-top: 6rem;
 		}
 	}
-	&#home{
-		background: url("../img/Foto1.jpg") center center fixed;
+	&#yenni{
+		background: url("../img/yenni.jpg") center center;
 		background-size: cover;
 		position: relative;
 		.mask{
 			position: absolute;
 			top: 0;
 			left: 0;
-			background: rgba(#1a2434, 0.4);
+			background: rgba($maincolor, 0.4);
 			z-index: 1 !important;
 			width: 100%;
 			height: 100%;
@@ -74,26 +93,14 @@ section{
 		*{
 			z-index: 2;
 		}
-		.wrapper{
-			position: relative;
-			
-
-			img{
-				max-width: 80px;
+		@include tablet {
+			background-size: 100% auto;
+			.mask{
+				background: linear-gradient(to right, $maincolor, rgba($maincolor,0.6),rgba($maincolor,0.2));
 			}
-			@include tablet{
-				width: 95%;
-				max-width: 1400px;
-				margin: 0 auto;
-				border: 1px solid $white-ter;
-				margin-bottom: -3.5rem
-			}
-			.title, .subtitle{
-				color: inherit;
-			}
-
 		}
-		.title, .subtitle{
+		
+		.title, .subtitle, .content{
 			color: white;
 		}
 	}
