@@ -3,6 +3,7 @@ $button-padding-horizontal: 1.6rem;
 $button-padding-vertical: 1.6rem;
 $box-padding: 2rem;
 $maincolor: #3b3985;
+$link: #57c4e1;
 @mixin customGap($val: 1.6)
 {
 	@include tablet{
@@ -33,7 +34,8 @@ $maincolor: #3b3985;
 }
 @import "~bulma";
 
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700');
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 @font-face {
     font-family: 'Playlist';
     src: local('Playlist Script'), local('Playlist-Script'),
@@ -44,7 +46,7 @@ $maincolor: #3b3985;
 }
 
 .title, .subtitle, .navbar-item{
-	font-family: 'Roboto Condensed'
+	font-family: 'Open Sans'
 }
 .has-navbar-fixed-top{
 	padding-top: 0 !important;
@@ -69,6 +71,18 @@ body{
 	position: relative;
 	line-height: 1.7;
 	font-size: 0.9rem;
+}
+
+
+.icon{
+	&.is-white {
+		color: white;
+		border-color: white;
+	}
+	&.is-circle {
+		border: 2px solid white;
+		border-radius: 100px;
+	}
 }
 
 section{
@@ -223,6 +237,28 @@ nav.navbar{
 	&.reversed{
 		@include desktop{
 			flex-direction: row-reverse;
+		}
+	}
+}
+
+footer {
+	position: relative;
+	padding: 2rem;
+	img {
+
+		width: 100%;
+		max-width: 300px;
+		@include desktop {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+		}
+		
+	}
+	@include widescreen {
+		padding: 4rem 0 2rem 0;
+		img {
+			max-width: 400px;
 		}
 	}
 }

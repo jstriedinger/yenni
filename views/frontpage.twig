@@ -1,22 +1,39 @@
 {% extends 'base.html.twig' %}
 {% block content %}
+{% set yenni = post.get_field("profile") %}
 
 <section class="section" id="yenni">
   <div class="mask"></div>
   <div class="container">
     <div class="columns">
       <div class="column is-half">
-        <h2 class="title is-1 is-big-1">yenniferth carranza</h2>
-        <p class="content is-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur sed odit excepturi dolores eveniet explicabo commodi reprehenderit doloribus molestias, vel provident dolore in maxime at itaque, eligendi sit! A, animi.</p>
-        <br>
-        <a href="">
-          <i class="icon is-large">
-            <span class="fab fa-facebook-f"></span>
+        <h2 class="title is-1 is-big-1">{{yenni.title}}</h2>
+        <div class="content is-medium">
+          {{yenni.content}}
+        </div>
+        {% for social in yenni.get_field("social") %}
+        <a href="{{social.url}}">
+          <i class="icon is-large is-circle is-white">
+            <span class="fab fa-{{social.type}} fa-lg"></span>
           </i>
         </a>
+        {% endfor %}
+        
       </div>
     </div>
   </div>
 </section>
+
+section.section
+<footer>
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <p class="subtitle is-size-4 is-size-3-widescreen">Escribeme a <br><a href="mailto:{{yenni.email}}">{{yenni.email}}</a></p>
+      </div>
+    </div>
+  </div>
+  <img src="{{theme.link}}/dist/img/bg_bottom.png" alt="yenni carranza footer" >
+</footer>
 
 {% endblock %}

@@ -19,5 +19,13 @@ $context["categories"] = get_categories();
 $templates = array( 'frontpage.twig' );
 
 $context['title'] = "Categorías";
+$args = array (
+    'post_type'              => 'book',
+    'posts_per_page' => '3'
+
+);
+$args['meta_query'] =  array(array('key' => 'popular','compare' => '==','value' => '1'));
+    
+$context['books'] = Timber::get_posts( $args );
 
 Timber::render( $templates, $context );
